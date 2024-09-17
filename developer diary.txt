@@ -1,0 +1,2 @@
+downloaded bootstrap and pooper the plan is to try and maximize the technologies i use to encounter as many errors
+used scss to style and cascade
