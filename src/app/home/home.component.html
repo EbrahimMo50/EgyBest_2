@@ -1,16 +1,15 @@
+<body>
 <div class="container text-center">
-    <div class="row justify-content-center align-items-center pb-5" ><h3>Top movies</h3></div>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="title" name="moviename" (ngModelChange)="showMovies()" >
-    </form>
+    <div class="row justify-content-center align-items-center p-5 primary-color" ><h3>Top movies</h3></div>
     <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-5">
       @for(movie of movies; track movie.title){
       <div class="col p-2">
         <a [href]="movie.link" class="w-100 h-100">   
-          <img [src]="movie.image" class="w-100 h-100 ">
+          <img [src]="movie.image" class="w-100 h-100 brdr">
           <div >{{movie.title}}</div>
         </a>
       </div>
       }
+  </div>
 </div>
-</div>
+</body>

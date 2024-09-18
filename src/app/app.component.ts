@@ -4,6 +4,7 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule, NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { CommonModule, NgFor } from '@angular/common';
     NavComponent,
     FooterComponent,
     HomeComponent,
-    NgFor
+    NgFor,
+    FormsModule
   ],
 
   templateUrl: './app.component.html',

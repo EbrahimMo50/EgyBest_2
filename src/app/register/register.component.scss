@@ -1,0 +1,19 @@
+@import '../app.component.scss';
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.brdr-danger{
+    border: red 2px solid;
+    border-radius: 5px;
+}
+
+.transation{
+    transition: 0.5s;
+}

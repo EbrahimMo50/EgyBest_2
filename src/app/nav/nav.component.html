@@ -1,34 +1,30 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h1 class="navbar-brand">EgyBest 2</h1></a>
+      <h1 class="navbar-brand primary-color fs-1 m-2">EgyBest 2</h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- router link is not working and no clue why -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a routerLink="/home" class="nav-link" aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+          @if(token){
+           <li class="nav-item">
+            <a routerLink="home" class="nav-link fs-4" aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">about</a>
+            <a class="nav-link fs-4" routerLink = "about">about</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
+          }
 
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li> -->
-          
+        </ul>
+
+        <ul class="navbar-nav mb-2 mb-lg-0 px-5">
+          <li class="nav-item px-3">
+            <a routerLink="login" class="nav-link fs-4 " aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="register" class="nav-link fs-4">Register</a>
+          </li>
         </ul>
       </div>
     </div>
