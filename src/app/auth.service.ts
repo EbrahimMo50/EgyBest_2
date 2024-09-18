@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   token:string = '';
 
-  constructor(private _httpClient:HttpClient) { 
+  constructor(private _httpClient:HttpClient,private _router:Router) { 
 
   }
 
@@ -16,10 +18,17 @@ export class AuthService {
     return this._httpClient.post("https://localhost:7181/api/Auth/Register",FormObject.value);
   }
 
-  Login(FormObject:any) : Observable<any>{
+  Login(FormObject:any){
     let email = FormObject.get('email').value;
     let password = FormObject.get('password').value;
-    console.log({email,password})
-    return this._httpClient.post("https://localhost:7181/api/Auth/Login", {email, password} ,{ responseType: 'text' });
+    this._httpClient.post("https://localhost:7181/api/Auth/Login", {email, password} ,{ responseType: 'text' }).subscribe((data)=>{
+      this.token = data;
+      this._router.navigate(['home']);
+    });
+    
+  }
+  
+  logOut() {
+    this.token = '';
   }
 }

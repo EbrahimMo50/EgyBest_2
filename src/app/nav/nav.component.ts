@@ -19,6 +19,11 @@ import { AuthService } from '../auth.service';
 })
 export class NavComponent {
   token:string = '';
-  constructor(private _authService:AuthService){
+  constructor(public _authService:AuthService){
+  }
+
+  logOut(){
+    this._authService.logOut();
+    window.alert("succefully logged out");
   }
 }

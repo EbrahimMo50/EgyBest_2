@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  constructor(private  _authService:AuthService){ }
+  constructor(private _authService:AuthService, private _router:Router){ }
 
   FormGroup:FormGroup = new FormGroup({
     email:new FormControl(null,[Validators.required]),
@@ -21,10 +22,7 @@ export class LoginComponent {
   });
 
   Login(FormGroup:FormGroup){
-
-    this._authService.Login(FormGroup).subscribe((data)=>{
-      console.log(data);
-    });
-    
+    this._authService.Login(FormGroup);
+    this._router.navigate(['home']);
   }
 }
