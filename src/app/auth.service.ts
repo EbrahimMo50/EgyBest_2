@@ -17,6 +17,9 @@ export class AuthService {
   }
 
   Login(FormObject:any) : Observable<any>{
-    return this._httpClient.post("https://localhost:7181/api/Auth/Login?email=E%40gmail.com&password=1234",FormObject.value ,{ responseType: 'text' });
+    let email = FormObject.get('email').value;
+    let password = FormObject.get('password').value;
+    console.log({email,password})
+    return this._httpClient.post("https://localhost:7181/api/Auth/Login", {email, password} ,{ responseType: 'text' });
   }
 }
