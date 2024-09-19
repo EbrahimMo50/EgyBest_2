@@ -3,6 +3,10 @@ $primary-color : #e74c3c;
 $secondary-color : #ecf0f1;
 $text : #ffffff;
 
+.background{
+    background-color: $background !important;
+}
+
 .brdr{
     border-radius: 5px;
     border: 2px solid #555;

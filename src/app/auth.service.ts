@@ -10,7 +10,7 @@ export class AuthService {
   token:string = '';
 
   constructor(private _httpClient:HttpClient,private _router:Router) { 
-
+      
   }
 
   //note to self the email is not validated to be unqiue from the backend :):)
@@ -21,11 +21,22 @@ export class AuthService {
   Login(FormObject:any){
     let email = FormObject.get('email').value;
     let password = FormObject.get('password').value;
-    this._httpClient.post("https://localhost:7181/api/Auth/Login", {email, password} ,{ responseType: 'text' }).subscribe((data)=>{
-      this.token = data;
-      this._router.navigate(['home']);
-    });
     
+    this._httpClient.post("https://localhost:7181/api/Auth/Login", { email, password }, { responseType: 'text' })
+      .subscribe({
+        next: (data) => {
+          this.token = data;
+          localStorage.setItem('UserToken',this.token);
+          this._router.navigate(['home']);
+        },
+        error: (error) => {
+          window.alert('Login failed: ' + error.message || 'Please try again.');
+        }
+      });
+  }
+
+  assignToken(token:string){
+    this.token = token;
   }
   
   logOut() {

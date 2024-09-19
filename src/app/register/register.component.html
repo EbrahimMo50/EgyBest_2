@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="form-group w-75 center m-3">
-    <label for="exampleInputpassword1"></label>
+    <label for="exampleInputpassword1">Password</label>
     <input formControlName = "password" type="password" class="form-control w-50" id="exampleInputpassword1" placeholder="password">
     <div class="w-50 brdr-danger m-2 p-2" [hidden] = "FormGroup.get('password')?.errors == null || !FormGroup.get('password')?.touched" >
         <p [hidden] = "FormGroup.get('password')?.errors?.['required'] == null">Password is required</p>
