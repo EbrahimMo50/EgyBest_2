@@ -18,10 +18,8 @@
         </ul>
         @if(_authService.token){
         <ul class="navbar-nav mb-2 mb-lg-0 px-5 w-100 ">
-          <form class="form-inline my-2 my-lg-0 fixit mt-5 w-100 ">
-            <input class="form-control mr-sm-2 p-2 mx-2 background brdr" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+            <input class="form-control mr-sm-2 p-2 mx-2 background brdr" type="search" placeholder="Search" aria-label="Search" id="searchquery">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click) = search()>Search</button>
         </ul>
       }
         <ul class="navbar-nav mb-2 mb-lg-0 px-5">
