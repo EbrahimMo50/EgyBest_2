@@ -1,13 +1,21 @@
 <div class="container text-center">
     <div class="row justify-content-center align-items-center p-5 primary-color" ><h3>Top movies</h3></div>
-    <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-5">
+    <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-5 grid-container">
+        <p class="fs-2 w-100">Image</p>
+        <div class=" w-100">
+          <p class="fs-2 w-100">Name</p>
+          <input class="input-search" type="text" placeholder="Search by name" (input)="searchByName($event)">
+        </div>  
+        <p class="fs-2 w-100">Release date</p>
+        <p class="fs-2 w-100">Description</p>
+
       @for(movie of movies; track movie.title){
-      <div class="col p-2">
         <a [href]="movie.link" class="w-100 h-100">   
           <img [src]="movie.image" class="w-100 h-100 brdr">
-          <div >{{movie.title}}</div>
-        </a>
-      </div>
+          </a>
+        <p class="w-100">{{movie.title}}</p>
+        <p class="w-100">{{movie.releaseDate|myDate}}</p>
+        <button class="fs-5 circle-brdr" (click)="callDetails(this.movie)">...</button>
       }
   </div>
 </div>

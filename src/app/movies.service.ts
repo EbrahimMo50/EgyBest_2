@@ -23,6 +23,7 @@ export class MoviesService {
 
     this.movieObserver.subscribe((data)=> {
           this.movies = data;
+          console.log(data);
         });
     return this.movieObserver;
   }

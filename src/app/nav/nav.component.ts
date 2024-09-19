@@ -28,7 +28,6 @@ export class NavComponent implements OnInit{
     let element = document.getElementById('searchquery') as HTMLInputElement | null;
     let query = element?.value;
     this._movieService.search(query!);
-    console.log(query);
   }
 
   ngOnInit(){

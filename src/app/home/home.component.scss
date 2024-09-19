@@ -1,1 +1,27 @@
 @import '../app.component.scss';
+.grid-container{
+    display: grid !important;
+    grid-template-columns: auto auto auto auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+    grid-template-columns: 2fr 1fr 2fr 2fr  !important; 
+    gap: 50px !important; 
+    padding: 20px !important;
+}
+.circle-brdr{
+    border-radius: 50%;
+    justify-self: center;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    transition: 0.5s;
+}
+.circle-brdr:hover{
+    background-color: rgb(58, 162, 223);
+}
+.input-search{
+border: black 1px solid;
+border-radius: 5px;
+background-color: transparent;
+
+}
