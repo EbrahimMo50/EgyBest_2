@@ -1,10 +1,13 @@
 <div class="container text-center">
+    <div class="row justify-content-center align-items-center p-5 primary-color" ><h3>Search</h3></div>
     <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-5">
+      @for(movie of _movieService.searchedMovies; track movie.title){
       <div class="col p-2">
-        <a href="movie.link" class="w-100 h-100">   
-          <img src="movie.image" class="w-100 h-100 brdr">
-          <div >title</div>
+        <a [href]="movie.link" class="w-100 h-100">   
+          <img [src]="movie.image" class="w-100 h-100 brdr">
+          <div >{{movie.title}}</div>
         </a>
       </div>
+      }
   </div>
 </div>

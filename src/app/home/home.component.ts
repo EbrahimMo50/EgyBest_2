@@ -27,12 +27,7 @@ export class HomeComponent {
   
   constructor(private _movieService:MoviesService){
     _movieService.getUpcomingTvShows().subscribe((data)=> {
-      this.moviesobject = data.list    
-      this.moviesobject.forEach((element: any) => {
-        element.list.forEach((movie: any) => {
-          this.movies.push(movie);
-        });
-      });
+      this.movies = data;
     });
     this.showMovies();
   }
