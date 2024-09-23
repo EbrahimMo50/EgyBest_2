@@ -10,7 +10,7 @@ import { SearchComponent } from './search/search.component';
 export const routes: Routes = [
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component:HomeComponent , canActivate: [authGuard]},
-    { path: 'search', component:SearchComponent},
+    { path: 'search', component:SearchComponent,  canActivate: [authGuard]},
     { path: 'about', component:AboutComponent, canActivate: [authGuard]},
     { path: 'login', component:LoginComponent},
     { path: 'register', component:RegisterComponent},

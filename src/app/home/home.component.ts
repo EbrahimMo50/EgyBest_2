@@ -5,7 +5,6 @@ import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angul
 import { FormsModule } from '@angular/forms';
 import { MyDatePipe } from '../my-date.pipe';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -16,41 +15,94 @@ import { MyDatePipe } from '../my-date.pipe';
     RouterLink,
     RouterLinkActive,   
     FormsModule,
-    MyDatePipe
+    MyDatePipe,
+    
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {  
-  moviesobject:any;
   movies:any = [];
-  moviesview:any = [];
-  title:string = '';
+  displayedImageURL:string = '';
+  topMoviesImages:string[] = [];
+  indexDisplayedImage:number = 0;
   
   constructor(private _movieService:MoviesService){
     _movieService.getUpcomingTvShows().subscribe((data)=> {
       this.movies = data;
-      this.moviesview = data;
+      for(let i = 0; 5 > i && this.movies.length > i; ++i)
+        this.topMoviesImages.push(this.movies[i].image)
+      this.displayedImageURL = this.topMoviesImages[0];
     });
-    this.showMovies();
+    this.autoSwap();
   }
 
-  callDetails(item:any){
-    alert(item.description)
+  async autoSwap(){
+    this.swapRight();
+    await this.sleep(5000);
+    this.autoSwap();
   }
 
-  showMovies(){
-    this.moviesview = [];
-    this.title = this.title.toLowerCase();
-    this.movies.forEach((element:any) => {
-      if(this.movies.title.match(this.title) || this.title == '')
-      this.moviesview.push(element);
-    });
+  async sleep(msec:number) {
+    return new Promise(resolve => setTimeout(resolve, msec));
   }
-  
-  searchByName(event: Event){
-    let inputElement = event.target as HTMLInputElement;
-    let query = inputElement.value;
-    this.movies = this.moviesview.filter((book: { title: string; }) => book.title.toLowerCase().includes(query.toLowerCase()))
+
+  async swapRight(){
+    const image = document.getElementById('img');
+    let timerOpacity = 100;
+    
+    while(timerOpacity>25){
+      let opacityPercent = 1 * (timerOpacity / 100);
+      console.log(opacityPercent.toString());
+      image!.style.opacity = opacityPercent.toString();
+      await this.sleep(1);
+      timerOpacity--;
+    }
+
+    if(this.indexDisplayedImage == 4)
+      this.indexDisplayedImage = 0;
+    else
+      this.indexDisplayedImage++;
+    this.displayedImageURL = this.topMoviesImages[this.indexDisplayedImage];
+
+    while(timerOpacity<100){
+      let opacityPercent = 1 * (timerOpacity / 100);
+      console.log(opacityPercent.toString());
+      image!.style.opacity = opacityPercent.toString();
+      await this.sleep(1);
+      timerOpacity++;
+    }
+    
   }
+
+  async swapLeft(){
+
+    const image = document.getElementById('img');
+    let timerOpacity = 100;
+    
+    while(timerOpacity>25){
+      let opacityPercent = 1 * (timerOpacity / 100);
+      console.log(opacityPercent.toString());
+      image!.style.opacity = opacityPercent.toString();
+      await this.sleep(1);
+      timerOpacity--;
+    }
+
+    if(this.indexDisplayedImage == 0)
+      this.indexDisplayedImage = 4;
+    else
+      this.indexDisplayedImage--;
+    this.displayedImageURL = this.topMoviesImages[this.indexDisplayedImage];      
+    
+    while(timerOpacity<100){
+      let opacityPercent = 1 * (timerOpacity / 100);
+      console.log(opacityPercent.toString());
+      image!.style.opacity = opacityPercent.toString();
+      await this.sleep(1);
+      timerOpacity++;
+    }
+  }
+
+
+
 }

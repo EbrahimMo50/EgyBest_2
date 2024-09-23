@@ -1,40 +1,81 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary transparent" id="nav-bar">
     <div class="container-fluid">
       <h1 class="navbar-brand primary-color fs-1 m-2">EgyBest 2</h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- router link is not working and no clue why -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
           @if(_authService.token){
            <li class="nav-item">
-            <a routerLink="home" class="nav-link fs-4" aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+            <a routerLink="home" class="nav-link fs-5 m-2" aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-4" routerLink = "about">about</a>
+            <a class="nav-link fs-5 m-2" routerLink = "about">about</a>
           </li>
           }
         </ul>
         @if(_authService.token){
-        <ul class="navbar-nav mb-2 mb-lg-0 px-5 w-100 ">
-            <input class="form-control mr-sm-2 p-2 mx-2 background brdr" type="search" placeholder="Search" aria-label="Search" id="searchquery">
-            <button class="btn btn-outline-success my-2 my-sm-0" (click) = search()>Search</button>
+        <ul class="navbar-nav mb-2 mb-lg-0 px-5 w-100 search-container" id="SearchContainer">
+          <form class="search-container w-100" [formGroup] = "group" (ngSubmit) = "search()" >
+            <button class="btn secondary-color my-2 my-sm-0" (click) = "openSearch()"><i class="fas fa-search" id="searchIcon"></i></button>
+            <input class="form-control mr-sm-2 p-2 mx-2 background brdr transparent" placeholder="Search" id="searchquery">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click) = "search()" type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </ul>
       }
         <ul class="navbar-nav mb-2 mb-lg-0 px-5">
 
+          @if(_authService.token){
+            <li class="nav-item">
+             <a routerLink="#" class="nav-link fs-5 m-2 flex" aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page" (mouseenter)="isMouseOnLink1 = true" (mouseleave)="isMouseOnLink1 = false">
+              link1 
+              <i class="fa-solid fa-chevron-down smaller-txt"></i>
+            </a>
+              <div class="drop-down-menu" *ngIf = "isMouseOnLink1" (mouseenter)="isMouseOnLink1 = true" (mouseleave)="isMouseOnLink1 = false">
+                <a href="" class="small-txt">dummy1</a><hr>
+                <a href="" class="small-txt">dummy2</a><hr>
+                <a href="" class="small-txt">dummy3</a>
+             </div>
+           </li>
+
+           <li class="nav-item">
+             <a class="nav-link fs-5 m-2 flex" routerLink = "#" (mouseenter)="isMouseOnLink2 = true" (mouseleave)="isMouseOnLink2 = false">
+              link2 
+              <i class="fa-solid fa-chevron-down smaller-txt"></i>
+            </a>
+                 <div class="drop-down-menu" *ngIf = "isMouseOnLink2" (mouseenter)="isMouseOnLink2 = true" (mouseleave)="isMouseOnLink2 = false">
+                  <a href="" class="small-txt">dummy1</a><hr>
+                  <a href="" class="small-txt">dummy2</a><hr>
+                  <a href="" class="small-txt">dummy3</a>
+                 </div>
+           </li>
+           }
+           
+           <li class="nav-item">
+            <a href="#"><i class="fa-brands fa-facebook fs-4 m-3"></i></a>
+          </li>
+           <li class="nav-item">
+            <a href="#"><i class="fa-brands fa-whatsapp fs-4 m-3"></i></a>
+          </li>
+           <li class="nav-item">
+            <a href="#"><i class="fa-brands fa-instagram fs-4 m-3"></i></a>
+          </li>
+           <li class="nav-item">
+            <a href="#"><i class="fa-brands fa-spotify fs-4 m-3"></i></a>
+          </li>
+
           @if(!_authService.token){
           <li class="nav-item px-3">
-            <a routerLink="login" class="nav-link fs-4 " aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+            <a routerLink="login" class="nav-link fs-5 m-2 " aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
           </li>
           <li class="nav-item">
-            <a routerLink="register" class="nav-link fs-4">Register</a>
+            <a routerLink="register" class="nav-link fs-5 m-2">Register</a>
           </li>
           }
           @if(_authService.token){
             <li class="nav-item">
-              <a routerLink="login" class="nav-link fs-4" (click) = "logOut()">LogOut</a>
+              <a routerLink="login" class="nav-link fs-5 m-2" (click) = "logOut()">LogOut</a>
             </li>
           }
 

@@ -1,6 +1,50 @@
 @import '../app.component.scss';
 
+.secondary-color{
+    color: $secondary-color;
+}
+
+.search-container{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-left: 44%;
+}
+
+nav{
+    height: 13% !important;
+    border-bottom: 1px rgba(128, 128, 128, 0.3) solid !important;
+}
 .fixit{
     display: flex !important;
-    
+}
+.transparent{
+    background-color: transparent !important;
+}
+
+.small-txt{
+    font-size: 15px;
+}
+
+.smaller-txt{
+    font-size: 8px;
+    align-self:center;
+}
+
+.drop-down-menu{
+    position:absolute;
+    background-color: black ;
+    width: 96px;
+    display: grid;
+    padding: 16px;
+    margin-top: -0.5%;
+}
+
+.drop-down-menu:hover{
+    visibility: visible;
+}
+
+.flex{
+    display: flex;
 }

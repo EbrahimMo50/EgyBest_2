@@ -1,5 +1,5 @@
-<form class="center mt-5" [formGroup] = "FormGroup" (ngSubmit)="SubmitForm(FormGroup)">
-<div class="form-group w-75 center m-3" >
+<form class="center " [formGroup] = "FormGroup" (ngSubmit)="SubmitForm(FormGroup)">
+<div class="form-group w-75 center h-25" >
     <label for="name1">Full name</label>
     <input formControlName = "name" type="text" class="form-control w-50" id="name1" placeholder="Enter Name">
     <div class="w-50 brdr-danger m-2 p-2" [hidden] = "FormGroup.get('name')?.errors == null || !FormGroup.get('name')?.touched">
@@ -8,7 +8,7 @@
         <p [hidden] = "FormGroup.get('name')?.errors?.['maxlength'] == null">name can't exceed 30 chars</p>
     </div>
 </div>
-<div class="form-group w-75 center m-3" >
+<div class="form-group w-75 center  h-25" >
     <label for="Age1">Age</label>
     <input formControlName = "age" type="number" class="form-control w-50" id="age1" aria-describedby="emailHelp" placeholder="age">
     <div class="w-50 brdr-danger m-2 p-2" [hidden] = "FormGroup.get('age')?.errors == null || !FormGroup.get('age')?.touched" >
@@ -17,7 +17,7 @@
         <p [hidden] = "FormGroup.get('age')?.errors?.['max'] == null">boomer go sleep no more than 99</p>
     </div>
 </div>
-<div class="form-group w-75 center m-3" >
+<div class="form-group w-75 center  h-25" >
     <label for="exampleInputemail1">Email address</label>
     <input formControlName = "email" type="email" class="form-control w-50 " id="exampleInputemail1" aria-describedby="emailHelp" placeholder="Enter email">
     <div class="w-50 brdr-danger m-2 p-2" [hidden] = "FormGroup.get('email')?.errors == null || !FormGroup.get('email')?.touched" >
@@ -25,7 +25,7 @@
         <p [hidden] = "FormGroup.get('email')?.errors?.['email'] == null">email format is wrong</p>
     </div>
 </div>
-<div class="form-group w-75 center m-3">
+<div class="form-group w-75 center h-25">
     <label for="exampleInputpassword1">Password</label>
     <input formControlName = "password" type="password" class="form-control w-50" id="exampleInputpassword1" placeholder="password">
     <div class="w-50 brdr-danger m-2 p-2" [hidden] = "FormGroup.get('password')?.errors == null || !FormGroup.get('password')?.touched" >
