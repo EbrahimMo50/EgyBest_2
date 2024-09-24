@@ -5,16 +5,16 @@
 }
 
 .search-container{
-    width: 100%;
+    width: 8%;
     display: flex;
     overflow: hidden;
-    transition: 0.5s;
-    margin-left: 44%;
+    transition: 1.5s;
 }
 
 nav{
     height: 13% !important;
     border-bottom: 1px rgba(128, 128, 128, 0.3) solid !important;
+    z-index: 2;
 }
 .fixit{
     display: flex !important;

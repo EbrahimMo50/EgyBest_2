@@ -2,6 +2,23 @@
     <button class="swap-card fs-5 left-swap"  (click) = "swapLeft()">←</button>
     <div class="card">
         <img [src]="displayedImageURL" alt="" class="image-card" id="img">
+        <div class="overlay"></div>
     </div>
     <button class="swap-card fs-5 right-swap" (click) = "swapRight()">→</button>
 </div>
+
+<section>
+    <div class="setion-header">
+        <h3 class="primary-color">Drama Movies</h3>
+        <div class="custom-brdr"></div>
+    </div>
+
+        <div class="movies-container w-100 m-2">
+            @for(movie of movies; track movie.id){
+            <div class="movie w-100 center-items">
+                <img [src]="movie.image" alt="" class="movie-image w-100 h-75">
+                <p class="movie-title secondary-color fs-5">{{movie.title}}</p>
+            </div>
+            }
+        </div>
+</section>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary transparent" id="nav-bar">
-    <div class="container-fluid">
+    <div class="container-fluid background transparent" id="collapsed-nav">
       <h1 class="navbar-brand primary-color fs-1 m-2">EgyBest 2</h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,11 +15,12 @@
           </li>
           }
         </ul>
+        <!-- note that the seach bar is not responisve to resizing it will disapper once window is shrunk enough -->
         @if(_authService.token){
-        <ul class="navbar-nav mb-2 mb-lg-0 px-5 w-100 search-container" id="SearchContainer">
-          <form class="search-container w-100" [formGroup] = "group" (ngSubmit) = "search()" >
+        <ul class="navbar-nav mb-2 mb-lg-0 px-5 search-container" id="SearchContainer">
+          <form class="search-container w-100" [formGroup] = "group" (ngSubmit) = "search()" (keydown)="onKeyDown($event)">
             <button class="btn secondary-color my-2 my-sm-0" (click) = "openSearch()"><i class="fas fa-search" id="searchIcon"></i></button>
-            <input class="form-control mr-sm-2 p-2 mx-2 background brdr transparent" placeholder="Search" id="searchquery">
+            <input class="form-control mr-sm-2 p-2 mx-2 background brdr transparent w-100 secondary-color" placeholder="Search" id="searchquery">
             <button class="btn btn-outline-success my-2 my-sm-0" (click) = "search()" type="submit"><i class="fas fa-search"></i></button>
           </form>
         </ul>
