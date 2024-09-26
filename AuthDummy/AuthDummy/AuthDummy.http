@@ -1,0 +1,6 @@
+@AuthDummy_HostAddress = http://localhost:5264
+
+GET {{AuthDummy_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
