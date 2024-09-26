@@ -9,7 +9,7 @@
 
 <section>
     <div class="setion-header">
-        <h3 class="primary-color">Drama Movies</h3>
+        <h3 class="white-color">Drama Movies</h3>
         <div class="custom-brdr"></div>
     </div>
 
@@ -17,7 +17,8 @@
             @for(movie of movies; track movie.id){
             <div class="movie w-100 center-items">
                 <img [src]="movie.image" alt="" class="movie-image w-100 h-75">
-                <p class="movie-title secondary-color fs-5">{{movie.title}}</p>
+                <p class="movie-title white-color fs-5 mt-3">{{movie.title}}</p>
+                <p class="smaller-font white-color">{{movie.description|shorten}}</p>
             </div>
             }
         </div>

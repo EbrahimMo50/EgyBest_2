@@ -38,15 +38,33 @@ export class NavComponent{
   onScroll(event: Event) {
     const scrollPosition = window.scrollY;
 
-    let navbar = document.getElementById('nav-bar');
-    let collapsed = document.getElementById('collapsed-nav');
+    const navLinks = document.querySelectorAll('nav > div > div > ul > li > a');
+    const iconSearch = document.querySelectorAll('.fas');
+    const header = document.getElementById('h1');
+    const navbar = document.getElementById('nav-bar');
+
     if (scrollPosition > 1) {
       navbar?.classList.remove('transparent');
-      collapsed?.classList.remove('transparent');
+      header?.classList.remove('white-color');
+
+      iconSearch.forEach(element => {
+        element?.classList.remove('white-color');
+      });
+      
+      navLinks.forEach(element => {
+        element.classList.remove('white-color');
+      });
+
     } 
     else if(scrollPosition < 1){
+      header?.classList.add('white-color');
       navbar?.classList.add('transparent');
-      collapsed?.classList.add('transparent');
+      iconSearch.forEach(element => {
+        element?.classList.add('white-color');
+      });
+      navLinks.forEach(element => {
+        element.classList.add('white-color');
+      });
     }
   }
 

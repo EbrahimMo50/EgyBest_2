@@ -1,7 +1,11 @@
-$background : #2c3e50;
-$primary-color : #e74c3c;
-$secondary-color : #ecf0f1;
-$text : #ffffff;
+$background : white;
+$primary-color : black;
+$secondary-color : black;
+$text : black;
+
+.white-color{
+    color: white !important;
+}
 
 .background{
     background-color: $background !important;

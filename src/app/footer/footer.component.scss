@@ -2,4 +2,34 @@
 
 .footer{
     padding: 24px;
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 10vh 10vh 10vh 10vh;
+    grid-column-gap: 30vh;
+    padding: 40px;
+    justify-content: center;
+}
+
+.container-footer{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.container-footer > a :hover{
+    translate: 15px;
+    text-decoration: underline !important;
+}
+.copyrights{
+    justify-self: center;
+    align-self: center;
+    text-decoration: underline;
+    font-size: smaller;
+}
+
+.container-main{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }

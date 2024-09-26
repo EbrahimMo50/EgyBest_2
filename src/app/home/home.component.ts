@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MyDatePipe } from '../my-date.pipe';
+import { ShortenPipe } from '../shorten.pipe';
 
 // note that auto swap feature got commented due to it being called always when the companent is called (constructor/ onInit) making it drop the fade effect multiple times
 
@@ -18,7 +19,7 @@ import { MyDatePipe } from '../my-date.pipe';
     RouterLinkActive,   
     FormsModule,
     MyDatePipe,
-    
+    ShortenPipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

@@ -35,7 +35,7 @@ background-color: transparent;
 border: gray solid 1px;
 align-self: center;
 transition: 0.5s;
-
+color: white !important;
 }
 
 
@@ -74,7 +74,7 @@ section{
   border-radius: 8px;
   display: grid;
   padding: 56px;
-  height: 90vh;
+  height: 110vh;
   overflow: hidden;
 }
 
@@ -116,4 +116,8 @@ section{
 
 .movie-title{
   z-index: 2;
+}
+
+.smaller-font{
+  font-size: smaller;
 }
